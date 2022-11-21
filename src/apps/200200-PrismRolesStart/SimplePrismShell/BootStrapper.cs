@@ -20,16 +20,14 @@ namespace SimplePrismShell
             
         }
 
-        //protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        //{
-        //    moduleCatalog.AddModule<AdminModule>();
-        //    moduleCatalog.AddModule<UserModule>();
-        //}
+        protected override void InitializeShell(DependencyObject shell)
+        {
+            base.InitializeShell(shell);
+        }
 
         protected override IModuleCatalog CreateModuleCatalog()
         {
             return new ConfigurationModuleCatalog();
         }
-
     }
 }
