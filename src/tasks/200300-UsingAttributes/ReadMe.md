@@ -1,29 +1,16 @@
 # Admin and User Role. 
-- This is the start example for USer Roles.
-- This must be built and run using Vs 2022
-- Add roles like the following in Bootstraper.cs
+- Add a new projecjt.
+- Create a new class inside of that project.
+- Add a class RolesAttribute.
+- Now all other projects should have reference to this project.
+- Add attributes as follows in Admin and User module.
 ```cs
-protected override void InitializeShell(DependencyObject shell)
-{
-    var identity = WindowsIdentity.GetCurrent();
-    var p = new GenericPrincipal(identity, new string[] { "User", "Admin" });
-    Thread.CurrentPrincipal = p;
-    base.InitializeShell(shell);
-}
+[Roles("Admin")]
+public class AdminModule : IModule{ }
 ```
-- That can also be done before bootstraper like in App.xaml.cs
+
 ```cs
-protected override void OnStartup(StartupEventArgs e)
-{
-    base.OnStartup(e);
-    ////////////////////////
-    var identity = WindowsIdentity.GetCurrent();
-    var p = new GenericPrincipal(identity, new string[] { "User", "Admin" });
-    Thread.CurrentPrincipal = p;
-    ////////////////////////
-    var bootstrapper = new BootStrapper();
-    bootstrapper.Run();
-}
+[Roles("User")]
+public class UserModule : IModule{ }
 ```
-- so we got the identity, created a principal object.
-- Then assigned some roles to it. Then we set the current principal object.
+- 
