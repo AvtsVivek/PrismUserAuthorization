@@ -81,3 +81,5 @@ protected override void InitializeShell(DependencyObject shell)
     base.InitializeShell(shell);
 }
 ```
+
+- Feel free to take this approach, apply it to your application and modify it to match your requirements, so if you need claims-based authorization, well, change this to use your claims instead of using a hard coded role name instead.
